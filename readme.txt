@@ -41,7 +41,19 @@ Please read license.txt for more info.
 
 ###################################################################
 
-3. Installation.
+3. Easy installation.
+
+```script
+  git clone https://github.com/MINDoSOFT/toolbox
+  # For RGBD
+  wget https://pdollar.github.io/files/datasets/edges/modelNyuRgbd.mat
+  mv modelNyuRgbd.mat models/forest/
+  # Adjust file location for input directory and image and depth directory in edgesRgbdDemo.m
+```
+
+###################################################################
+
+4. Installation.
 
 a) This code is written for the Matlab interpreter (tested with versions R2013a-2013b) and requires the Matlab Image Processing Toolbox. 
 
@@ -70,15 +82,16 @@ f) A fully trained edge model for RGB images is available as part of this releas
 
 ###################################################################
 
-4. Getting Started.
+5. Getting Started.
 
  - Make sure to carefully follow the installation instructions above.
  - Please see "edgesDemo.m", "edgeBoxesDemo" and "spDemo.m" to run demos and get basic usage information.
+ - Please see "edgesRgbdDemo.m" for RGBD usage.
  - For a detailed list of functionality see "Contents.m".
 
 ###################################################################
 
-5. History.
+6. History.
 
 Version NEW
  - now hosting on github (https://github.com/pdollar/edges)

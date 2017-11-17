@@ -7,7 +7,7 @@ opts.modelFnm='modelNyuRgbd';     % model name
 opts.nPos=5e5; opts.nNeg=5e5;     % decrease to speedup training
 opts.useParfor=0;                 % parallelize if sufficient memory
 opts.fracFtrs=1/8;                % sample fewer ftrs since using depth
-opts.bsdsDir='BSR/NYUD/data/';    % specify use of NYU data
+opts.bsdsDir='testRgbd/';    % specify use of NYU data
 opts.rgbd=2;                      % specify use of rgb+d images
 
 %% train edge detector (~50m/8Gb per tree, proportional to nPos/nNeg)
@@ -24,7 +24,7 @@ model.opts.nms=0;                 % set to true to enable nms
 if(0), edgesEval( model, 'show',1, 'name','', 'maxDist',.011 ); end
 
 %% detect edge and visualize results
-iDir=[opts.bsdsDir 'images/val/']; dDir=[opts.bsdsDir 'depth/val/'];
+iDir=[opts.bsdsDir 'images/']; dDir=[opts.bsdsDir 'depth/'];
 id=dir(fullfile(iDir,'*.png')); id={id.name}; id=id{1};
 I=single(imread(fullfile(iDir,id)))/255;
 D=single(imread(fullfile(dDir,id)))/1e4;
