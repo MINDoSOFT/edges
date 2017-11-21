@@ -32,11 +32,21 @@ inFiles=dir(fullfile(iDir,'*.png'));
 
 for ii = 1 : length(inFiles)
 
+  sMessage = sprintf('Calculating edges for file %d/%d', ii, length(inFiles));
+  disp(sMessage)
   id=inFiles(ii).name;
   I=single(imread(fullfile(iDir,id)))/255;
   D=single(imread(fullfile(dDir,id)))/1e4;
   tic, E=edgesDetect(cat(3,I,D),model); toc
   % figure(1); im(I); figure(2); im(1-E);
-  imwrite(E, [outDir id]);
+  % imwrite(E, [outDir id]); % This way does not work with epicflow
+  % Write the results as a binary file for epicflow
+  splitId = strsplit(id,'.');
+  sFilename = splitId{1};
+  fileID = fopen([outDir sFilename '.bin'],'w');
+  fwrite(fileID, E, 'float');
+  fclose(fileID);
 
 end
+
+disp('All done')
