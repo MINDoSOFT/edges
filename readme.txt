@@ -45,6 +45,7 @@ Please read license.txt for more info.
 
 ```script
   git clone https://github.com/MINDoSOFT/toolbox
+  git clone https://github.com/MINDoSOFT/utils
   # For RGBD
   wget https://pdollar.github.io/files/datasets/edges/modelNyuRgbd.mat
   mv modelNyuRgbd.mat models/forest/
